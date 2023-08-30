@@ -7,8 +7,7 @@ let playerScore = document.querySelector('.player-score');
 let computerScore = document.querySelector('.computer-score');
 let playerSymbol = document.querySelector('.player-symbol');
 let computerSymbol = document.querySelector('.computer-symbol');
-let gameWinner = document.createElement('div');
-gameWinner.style.cssText = "font-size: 40px; margin-top: -5%;";
+
 let playerWins = 0;
 let computerWins = 0;
 
@@ -77,22 +76,17 @@ function updateScore(){
 
 function announceWinner(){
     if(playerWins == 5){
-        gameWinner.textContent = "You Won The Game!";
-        container.insertBefore(gameWinner, gameStatus);
-        container.removeChild(gameStatus);
+        gameStatus.textContent = "You Won The Game!";
+      
     }
     if(computerWins == 5){
-        gameWinner.textContent = "You Lost The Game!";
-        container.insertBefore(gameWinner, gameStatus);
-        container.removeChild(gameStatus);
+        gameStatus.textContent = "You Lost The Game!";
+        
     }
 }
 
 function resetGame(){
-        if(playerWins == 5 || computerWins == 5){
-            container.removeChild(gameWinner);
-            container.insertBefore(gameStatus, gameRoundCase);
-        }
+       
         playerWins = 0;
         computerWins = 0;
         gameStatus.textContent = 'Choose your weapon';
